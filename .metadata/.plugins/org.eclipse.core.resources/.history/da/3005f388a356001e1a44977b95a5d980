@@ -1,0 +1,8 @@
+package com.example.ex02.domain.vo;
+
+public class Product {
+	
+	private String productName;
+	private Integer productPrice;
+	private Integer discountRate;
+}

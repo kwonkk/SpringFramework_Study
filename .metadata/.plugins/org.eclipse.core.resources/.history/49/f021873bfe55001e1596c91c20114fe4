@@ -1,0 +1,5 @@
+package com.example.ex02.domain.vo;
+
+public class StudentVO {
+
+}

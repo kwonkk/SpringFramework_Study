@@ -1,0 +1,46 @@
+package com.example.ex02.controller;
+
+import java.util.Calendar;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import lombok.extern.log4j.Log4j;
+
+@Controller
+@Log4j
+public class ExampleController {
+//이름을 입력하고 출근 또는 퇴근 버튼 클릭한다.
+//출근시간은 9시이며 퇴근시간은 18시이다.
+//출근버튼 클릭 9시가 넘으면 지각으로 처리하고,
+//퇴근버튼 클릭 시 18시 전이라면 퇴근이 아닌 업무시간으로 처리한다.
+	
+//모든 jsp는 work경로안에 생성하며 아래와 같이 분기별로 jsp문서를 한개씩 작성한다.
+//-getToWork.jsp
+//-leaveWork.jsp
+//-late.jsp
+//-work.jsp
+	
+	@GetMapping("/checkIn") 
+	public String checkIn() {
+		return "work/checkIn"; 
+	}
+	
+	@GetMapping("/getToWork")
+	public String getToWork() {
+		Calendar c = Calendar.getInstance();
+		int hour = c.get(Calendar.HOUR_OF_DAY);
+		int minute = c.get(Calendar.MINUTE);
+		
+		boolean lateCondition = hour >= 9 && minute > 0;
+		
+		if(lateCondition) {
+			return "work/late";
+		}
+		return "work/getToWork";
+	}
+	
+	@GetMapping("/leaveWork")
+	public void leaveWork() {
+	}
+}

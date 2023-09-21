@@ -1,0 +1,33 @@
+package com.example.ex02.controller;
+
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.log;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.example.ex02.domain.vo.LoginDTO;
+
+import lombok.extern.slf4j.Slf4j;
+
+@Controller
+@Slf4j
+public class TaskController {
+//아이디와 비밀번호를 입력받은 후 아이디가 admin일 경우 admin.html로 이동
+//아이디가 user일 경우 user.html로 이동
+	
+//-admin.html
+//-user.html
+	
+	@GetMapping("/ex08")
+	public String ex08(LoginDTO loginDTO) {
+		log.info("ex08...........");
+		
+		if(loginDTO.getID().equals("admin")) {
+			return "views/admin";}
+		else if(loginDTO.getID().equals("user")) {
+			return "views/user";
+		}else {
+			return "";
+		}
+	}
+}

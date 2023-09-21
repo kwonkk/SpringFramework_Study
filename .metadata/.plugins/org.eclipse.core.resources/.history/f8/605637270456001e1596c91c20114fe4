@@ -1,0 +1,12 @@
+package com.example.ex02.controller;
+
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class TaskController {
+//아이디와 비밀번호를 입력받은 후 아이디가 admin일 경우 admin.html로 이동
+//아이디가 user일 경우 user.html로 이동
+	
+//-admin.html
+//-user.html
+}
